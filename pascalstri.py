@@ -12,13 +12,24 @@ def combin(r,k):
 def pascal(row,entry):
 	'''calculates the entry in Pascal's Triangle
 	corresponding to a given row and entry'''
-	return combin(row,entry-1)
+	return combin(row,entry)
 
 def triangle(rows):
 	'''Prints out Pascal's Triangle'''
 	for i in range(rows+1):
-		for j in range(1,i+2):
+		for j in range(i+1):
 			print (int(pascal(i,j)),end= ' ')
 		print()
 
-triangle(10)
+##triangle(10)
+
+'''Added Sept 4, 2018: Finding out the probability of
+19 or more successful coin flips out of 25, to test if the
+Patriots were cheating in their streak'''
+
+def row_greater_than(row,num):
+        output = 0
+        for i in range(num,row+1):
+                output += pascal(row,i)
+        return output
+
